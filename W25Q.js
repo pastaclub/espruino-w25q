@@ -51,7 +51,7 @@ Flash.prototype.erase16Pages = function(pageNumber) {
 Flash.prototype.writePage = function(pageNumber, arrayBuffer) {
   // overwrites a page (256 bytes)
   // that memory MUST be erased first
-  this.seekWrite(pageNumber, 0);
+  this.startWrite(pageNumber, 0);
   for (var i=0; i<arrayBuffer.length; i++) this.write(arrayBuffer[i]);
   this.finish();
 };
