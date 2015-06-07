@@ -53,7 +53,7 @@ Flash.prototype.writePage = function(pageNumber, arrayBuffer) {
   // that memory MUST be erased first
   this.seekWrite(pageNumber, 0);
   for (var i=0; i<arrayBuffer.length; i++) this.write(arrayBuffer[i]);
-  this.finishWrite();
+  this.finish();
 };
 
 Flash.prototype.startWrite = function(pageNumber, offset) {
