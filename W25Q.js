@@ -26,6 +26,15 @@ Flash.prototype.read = function() {
   return this.spi.send(0);
 };
 
+Flash.prototype.readPage = function(pageNumber) {
+  var x = new Uint8Array(256);
+  this.seek(pageNumber, 0);
+  for (i = 0; i < 256; i++) {
+    x[i] = this.spi.send(0);
+  }
+  return x;
+}
+
 Flash.prototype.waitReady = function() {
   // waits until chip is ready
   this.command(0x05);
